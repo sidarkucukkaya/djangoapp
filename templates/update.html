@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+{% load crispy_forms_tags %}    <!--crispy formları kullanabilmemiz için bu yapıyı dahil etmemiz gerekiyor.-->
+
+<div class="row">   <!--bootstrap 4 grid system'den aldığımız kodlarla ekranı ortaladık.-->
+  <div class="col-md-6 offset-md-3">
+    <h3>Makale Güncelle</h3>
+    <hr>
+    
+    <form method="POST" enctype="multipart/form-data"></>
+    {% csrf_token %}
+    <!--{{form.as_p}} bu yapıyı crispy forms için kullanamayız. Onun için aşağıdaki yapıyı kullanmamız gerek.-->
+    {{form.media}}  <!--ckeditor için-->
+    {{form|crispy}}
+    <br>
+    <button type="submit" class="btn btn-danger">Makale Ekle</button>
+    </form>
+
+  </div>
+</div>
+
+{% endblock body %}
+
+

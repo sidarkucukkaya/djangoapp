@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+{% load crispy_forms_tags %}    <!--crispy formları kullanabilmemiz için bu yapıyı dahil etmemiz gerekiyor.-->
+
+<div class="row">   <!--bootstrap 4 grid system'den aldığımız kodlarla giriş ekranını ortaladık.-->
+  <div class="col-md-6 offset-md-3">
+    <h3>Kayıt Ol</h3>
+    <hr>
+    
+    <form method="post">
+    {% csrf_token %}
+    <!--{{form.as_p}} bu yapıyı crispy forms için kullanamayız. Onun için aşağıdaki yapıyı kullanmamız gerek.-->
+    {{form|crispy}}
+    <br>
+    <button type="submit" class="btn btn-success">Giriş Yap</button>
+    </form>
+
+  </div>
+</div>
+{% endblock body %}
+
